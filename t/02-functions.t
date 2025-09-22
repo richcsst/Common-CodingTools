@@ -3,9 +3,7 @@ use 5.008;
 use strict;
 no strict 'subs';
 use warnings FATAL => 'all';
-use Test::More;
-
-plan tests => 11;
+use Test::More tests => 11;
 
 BEGIN {
     use_ok('Common::CodingTools', qw(:functions)) || print "Bail out! Can't load Common::CodingTools qw(:functions)!\n";

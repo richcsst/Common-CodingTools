@@ -5,9 +5,7 @@ use strict;
 no strict 'subs';
 use warnings FATAL => 'all';
 
-use Test::More;
-
-plan tests => 24;
+use Test::More tests => 24;
 
 BEGIN {
 	use_ok('Common::CodingTools', qw( :constants )) || diag("Bail out! Can't load Common::CodingTools qw(:constants)");
