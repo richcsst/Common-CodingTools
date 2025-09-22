@@ -1,5 +1,9 @@
 # Common-CodingTools
 
+## DESCRIPTION
+
+Common programming tools with friendly constants and functions that should have been included with Perl in the first place.
+
 ## INSTALLATION
 
 To install this module, run the following commands:
