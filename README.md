@@ -18,17 +18,13 @@ perldoc command.
 
 You can also look for information at:
 
- RT, CPAN's request tracker (report bugs here)
-  http://rt.cpan.org/NoAuth/Bugs.html?Dist=Common-CodingTools
+* RT, CPAN's request tracker (report bugs here):  http://rt.cpan.org/NoAuth/Bugs.html?Dist=Common-CodingTools
 
- AnnoCPAN, Annotated CPAN documentation
-  http://annocpan.org/dist/Common-CodingTools
+* AnnoCPAN, Annotated CPAN documentation:  http://annocpan.org/dist/Common-CodingTools
 
- CPAN Ratings
-  http://cpanratings.perl.org/d/Common-CodingTools
+* CPAN Ratings:  http://cpanratings.perl.org/d/Common-CodingTools
 
- Search CPAN
-  http://search.cpan.org/dist/Common-CodingTools/
+* Search CPAN:  http://search.cpan.org/dist/Common-CodingTools/
 
 ## LICENSE AND COPYRIGHT
 
