@@ -30,6 +30,8 @@ You can also look for information at:
 
 * Search CPAN:  http://search.cpan.org/dist/Common-CodingTools/
 
+* GitHub:  https://github.com/richcsst
+
 ## LICENSE AND COPYRIGHT
 
 Copyright (C) 2016-2025 Richard Kelsch,
