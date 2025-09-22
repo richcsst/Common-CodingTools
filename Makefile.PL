@@ -1,4 +1,4 @@
-use 5.006;
+use 5.008;
 use strict;
 use warnings FATAL => 'all';
 use ExtUtils::MakeMaker;
@@ -9,9 +9,8 @@ if (WriteMakefile(
     AUTHOR             => q{Richard Kelsch <rich@rk-internet.com>},
     VERSION_FROM       => 'lib/Common/CodingTools.pm',
     ABSTRACT_FROM      => 'lib/Common/CodingTools.pm',
-    LICENSE            => 'Artistic 2.0',
     PL_FILES           => {},
-    MIN_PERL_VERSION   => 5.006001,
+    MIN_PERL_VERSION   => 5.008000,
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker'  => 0,
     },

@@ -1,12 +1,11 @@
 package Common::CodingTools;
 
+use strict;
+no strict 'subs';
+
 =head1 NAME
 
-Common::CodingTools - 
-
-Coding friendly positive/negative constants to make your code easier to read.
-
-Handy functions that should have been built into perl.
+Common::CodingTools - Common constants and functions for programmers
 
 =head1 SYNOPSIS
 
@@ -56,6 +55,8 @@ Positive names (equals 1)
 
 =item ACTIVE
 
+=item WANTED
+
 =back
 
 Negative names (equals 0)
@@ -82,6 +83,8 @@ Negative names (equals 0)
 
 =item INACTIVE
 
+=item UNWANTED
+
 =back
 
 =head2 IMPORT FUNCTIONS
@@ -102,7 +105,7 @@ Helpful functions you can import into your code
 
 =item uc_lc
 
-=item text_center
+=item center
 
 =item schwartzian_sort
 
@@ -156,6 +159,14 @@ Imports the constants HAPPY, SAD and ANGRY
 
 Imports the constants SUCCESS, SUCCESSFUL, SUCCEEDED, FAILURE, FAILED and FAIL
 
+=item :want
+
+Imports the constants WANTED and UNWANTED
+
+=item :pi
+
+Imports the constant PI (the mathematical value of pi)
+
 =back
 
 =head3 FUNCTIONS
@@ -174,173 +185,134 @@ Imports the functions "ltrim", "rtrim" and "trim"
 
 Import the function "schwartzian_sort"
 
-=item :weird-case
+=item :weird
 
 Import the function "uc_lc"
 
 =item :string
 
-Import the functions/tags ":trim", ":weird-case" and "text_center"
+Import the functions/tags ":trim", ":weird-case" and "center"
 
 =back
 
 =cut
 
-use constant {
-    'TRUE'       => 1,
-    'FALSE'      => 0,
-    'ON'         => 1,
-    'OFF'        => 0,
-    'ACTIVE'     => 1,
-    'INACTIVE'   => 0,
-    'SUCCESS'    => 1,
-    'SUCCEEDED'  => 1,
-    'SUCCESSFUL' => 1,
-    'FAILURE'    => 0,
-    'FAILED'     => 0,
-    'FAIL'       => 0,
-    'WANTED'     => 1,
-    'UNWANTED'   => 0,
-    'HAPPY'      => 1,
-    'UNHAPPY'    => 0,
-    'SAD'        => 0,
-    'ANGRY'      => 0,
-    'CLEAN'      => 1,
-    'DIRTY'      => 0,
-    'EXPIRED'    => 1,
-    'NOTEXPIRED' => 0,
-    'HEALTHY'    => 1,
-    'UNHEALTHY'  => 0,
-};
-
-use Exporter::Easy (
-    'EXPORT' => [
-        qw(
-          TRUE
-          FALSE
-        )
-    ],
-    'OK' => [
-        qw(
-          SUCCESS SUCCESSFUL SUCCEEDED
-          FAILURE FAILED FAIL
-          HAPPY SAD ANGRY
-          CLEAN DIRTY
-          EXPIRED NOTEXPIRED
-          HEALTHY UNHEALTHY
-          ON OFF
-          ACTIVE INACTIVE
-
-          slurp_file
-          ltrim
-          rtrim
-          trim
-          tfirst
-          uc_lc
-          text_center
-          schwartzian_sort
-        )
-    ],
-    'TAGS' => [
-        'toggle' => [
-            qw(
-              ON OFF
-            )
-        ],
-        'activity' => [
-            qw(
-              ACTIVE INACTIVE
-            )
-        ],
-        'health' => [
-            qw(
-              HEALTHY UNHEALTHY
-            )
-        ],
-        'expiration' => [
-            qw(
-              EXPIRED NOTEXPIRED
-            )
-        ],
-        'cleanliness' => [
-            qw(
-              CLEAN DIRTY
-            )
-        ],
-        'emotion' => [
-            qw(
-              HAPPY SAD ANGRY
-            )
-        ],
-        'success' => [
-            qq(
-                SUCCESS SUCCESSFUL SUCCEEDED
-                FAILURE FAILED FAIL
-            )
-        ],
-        'file' => [
-            qw(
-              slurp_file
-            )
-        ],
-        'trim' => [
-            qw(
-              ltrim
-              rtrim
-              trim
-            )
-        ],
-        'schwartz' => [
-            qw(
-              schwartzian_sort
-            )
-        ],
-        'weird-case' => [
-            qw(
-              uc_lc
-            )
-        ],
-        'string' => [
-            qw(
-              :trim
-              :weird-case
-              text_center
-            )
-        ],
-        'constants' => [
-            qw(
-              :success
-              :toggle
-              :activity
-              :health
-              :expiration
-              :cleanliness
-              :emotion
-            )
-        ],
-        'functions' => [
-            qw(
-              :file
-              :string
-              :schwartz
-              :weird-case
-              :string
-            )
-        ],
-        'all' => [
-            qw(
-              :constants
-              :functions
-            )
-        ],
-    ],
-);
-
 use List::Util qw(max);
+use constant {
+    FALSE      => 0,
+    TRUE       => 1,
+    ON         => 1,
+    OFF        => 0,
+    ACTIVE     => 1,
+    INACTIVE   => 0,
+    SUCCESS    => 1,
+    SUCCEEDED  => 1,
+    SUCCESSFUL => 1,
+    FAILURE    => 0,
+    FAILED     => 0,
+    FAIL       => 0,
+    WANTED     => 1,
+    UNWANTED   => 0,
+    HAPPY      => 1,
+    UNHAPPY    => 0,
+    SAD        => 0,
+    ANGRY      => 0,
+    CLEAN      => 1,
+    DIRTY      => 0,
+    EXPIRED    => 1,
+    NOTEXPIRED => 0,
+    HEALTHY    => 1,
+    UNHEALTHY  => 0,
+    PI         => (4 * atan2(1, 1)),
+};
 
 BEGIN {
     our $VERSION = 2.01;
 }
+
+require Exporter;
+
+our @ISA = qw(Exporter);
+
+our @EXPORT    = qw();
+our @EXPORT_OK = qw(
+  TRUE FALSE
+  SUCCESS SUCCESSFUL SUCCEEDED FAILURE FAILED FAIL
+  HAPPY UNHAPPY SAD ANGRY
+  CLEAN DIRTY
+  EXPIRED NOTEXPIRED
+  HEALTHY UNHEALTHY
+  ON OFF
+  ACTIVE INACTIVE
+  WANTED UNWANTED
+
+  PI
+
+  slurp_file
+  ltrim
+  rtrim
+  trim
+  tfirst
+  uc_lc
+  center
+  schwartzian_sort
+);
+our %EXPORT_TAGS = (
+    'toggle'      => [qw(ON OFF)],
+    'want'        => [qw(WANTED UNWANTED)],
+    'activity'    => [qw(ACTIVE INACTIVE)],
+    'health'      => [qw(HEALTHY UNHEALTHY)],
+    'expiration'  => [qw(EXPIRED NOTEXPIRED)],
+    'cleanliness' => [qw(CLEAN DIRTY)],
+    'emotion'     => [qw(HAPPY UNHAPPY SAD ANGRY)],
+    'success'     => [qw(SUCCESS SUCCESSFUL SUCCEEDED FAILURE FAILED FAIL)],
+    'pi'          => [qw(PI)],
+    'file'        => [qw(slurp_file)],
+    'trim'        => [qw(ltrim rtrim trim)],
+    'schwartz'    => [qw(schwartzian_sort)],
+    'weird'       => [qw(uc_lc)],
+    'string'      => [qw(ltrim rtrim trim uc_lc center tfirst)],
+    'constants'   => [
+        qw(
+          ON OFF
+          SUCCESS SUCCESSFUL SUCCEEDED FAILURE FAILED FAIL
+          ACTIVE INACTIVE
+          HEALTHY UNHEALTHY EXPIRED NOTEXPIRED
+          CLEAN DIRTY
+          HAPPY UNHAPPY SAD ANGRY
+          WANTED UNWANTED
+          PI
+		  TRUE FALSE
+        )
+    ],
+    'functions' => [
+        qw(
+          slurp_file
+          ltrim rtrim trim uc_lc
+          schwartzian_sort
+          center
+          tfirst
+        )
+    ],
+    'all' => [
+        qw(
+          ON OFF
+          SUCCESS SUCCESSFUL SUCCEEDED FAILURE FAILED FAIL
+          ACTIVE INACTIVE
+          HEALTHY UNHEALTHY EXPIRED NOTEXPIRED
+          CLEAN DIRTY
+          HAPPY UNHAPPY SAD ANGRY
+          WANTED UNWANTED
+          PI
+		  TRUE FALSE
+          slurp_file
+          ltrim rtrim trim uc_lc
+          schwartzian_sort
+          center
+          tfirst
+        )
+    ],
+);
 
 =head1 FUNCTIONS
 
@@ -412,15 +384,15 @@ sub trim {
     return ($string);
 } ## end sub trim
 
-=head2 text_center
+=head2 center
 
 Centers a string, padding with leading spaces, in the middle of a given width.
 
- my $result = text_center($string, 80); # Centers text for an 80 column display
+ my $result = center($string, 80); # Centers text for an 80 column display
 
 =cut
 
-sub text_center {
+sub center {
     my $string = shift || '';
     my $size   = max(shift, length($string));
 
@@ -430,7 +402,7 @@ sub text_center {
     $string = ' ' x $tab . $string if ($tab > 0);
     $string = sprintf($format, $string);
     return ($string);
-} ## end sub text_center
+} ## end sub center
 
 =head2 uc_lc
 
@@ -442,7 +414,7 @@ This changes text to annoying "leet-speak".
 
 sub uc_lc {
     my $string = shift;
-    my $start  = shift || int(rand(2));
+    my $start  = (scalar(@_)) ? shift : int(rand(2));
 
     if (defined($string) && $string ne '') {
         my $l = length($string);
@@ -471,6 +443,8 @@ Sorts a rather large list with the very fast Swartzian sort.  It takes two param
 
 =item 1 for true or 0 for false
 
+You MUST have this parameter first.  1 for string sort and 0 for numeric sort.
+
 =item array either as an array or reference to the array.
 
 =back
@@ -478,22 +452,19 @@ Sorts a rather large list with the very fast Swartzian sort.  It takes two param
 =cut
 
 sub schwartzian_sort {
-    my $string = shift || 0;    # Default is numeric sort
-    my @array  = ();
+    my $wa = wantarray;
 
-    if (wantarray) {
+    my @array = ();
+
+    if ($wa) {
         @array = @_;
     } else {
         my $arr = shift;
         @array = @{$arr};
     }
-    my @sorted;
-    if ($string) {
-        @sorted = map { $_->[0] } sort { $a->[1] cmp $b->[1] } map { [$_, -M $_] } @array;
-    } else {
-        @sorted = map { $_->[0] } sort { $a->[1] <=> $b->[1] } map { [$_, -M $_] } @array;
-    }
-    return ((wantarray) ? @sorted : \@sorted);
+    my @sorted = map { $_->[0] } sort { $a->[1] <=> $b->[1] or $a->[0] cmp $b->[0] } map { [$_, -M $_] } @array;
+
+    return (($wa) ? @sorted : \@sorted);
 } ## end sub schwartzian_sort
 
 =head2 tfirst
@@ -538,34 +509,34 @@ sub tfirst {
         my $psa = qr/ (?: ['’] [[:lower:]]* )? /x;
 
         $string =~ s{
-             \b (_*) (?:
-             ( [-_[:alpha:]]+ [@.:/] [-_[:alpha:]@.:/]+ $psa ) | # Internet address?
-             ( (?i: $little_regexp ) $psa ) |                    #    or little word (case-insensitive)?
-             ( [[:alpha:]] [[:lower:]'’()\[\]{}]* $psa ) |       #    or word without internal capitals?
-             ( [[:alpha:]] [[:alpha:]'’()\[\]{}]* $psa )         #    or other type of word
-             ) (_*) \b
-             }{
-             $1 . (
-                   defined $2 ? $2         # Please keep Internet specific addresses
-                 : defined $3 ? "\L$3"     # This is a lowercase little word
-                 : defined $4 ? "\u\L$4"   # Now capitalize the word without internal capitals
-                 : $5                      # Please preserve other type words
-             ) . $6
-        }exgo;
+    \b (_*) (?:
+        ( [-_[:alpha:]]+ [@.:/] [-_[:alpha:]@.:/]+ $psa ) | # Internet address?
+        ( (?i: $little_regexp ) $psa ) |                    #    or little word (case-insensitive)?
+        ( [[:alpha:]] [[:lower:]'’()\[\]{}]* $psa ) |       #    or word without internal capitals?
+  ( [[:alpha:]] [[:alpha:]'’()\[\]{}]* $psa )         #    or other type of word
+  ) (_*) \b
+  }{
+      $1 . (
+          defined $2 ? $2         # Please keep Internet specific addresses
+          : defined $3 ? "\L$3"     # This is a lowercase little word
+          : defined $4 ? "\u\L$4"   # Now capitalize the word without internal capitals
+          : $5                      # Please preserve other type words
+      ) . $6
+  }exgo;
 
         # Further processing for little words and other unique title rules
         $string =~ s{
-            (  \A [[:punct:]]*         # Title beginning
-            |  [:.;?!][ ]+             #     or perhaps a subsentence?
-            |  [ ]['"“‘(\[][ ]*     )  #     or perhaps a subphrase?
-            ( $little_regexp ) \b      #     is it followed by little word?
-        }{$1\u\L$2}xigo;
+    (  \A [[:punct:]]*         # Title beginning
+        |  [:.;?!][ ]+             #     or perhaps a subsentence?
+        |  [ ]['"“‘(\[][ ]*     )  #     or perhaps a subphrase?
+  ( $little_regexp ) \b      #     is it followed by little word?
+  }{$1\u\L$2}xigo;
 
         $string =~ s{
-            \b ( $little_regexp )      # The word is little
-            (?= [[:punct:]]* \Z        #    are we at the end of the title?
-            |   ['"’”)\]] [ ] )        #    or a subphrase?
-        }{\u\L$1}xigo;
+    \b ( $little_regexp )      # The word is little
+      (?= [[:punct:]]* \Z        #    are we at the end of the title?
+          |   ['"’”)\]] [ ] )        #    or a subphrase?
+  }{\u\L$1}xigo;
     } ## end if (defined($string) &&...)
     return ($string);
 } ## end sub tfirst
@@ -594,6 +565,8 @@ perldoc Common::CodingTools
 
 You can also look for information at:
 
+=over 4
+
 =item RT: CPAN's request tracker (report bugs here)
 
 http://rt.cpan.org/NoAuth/Bugs.html?Dist=Common-CodingTools
@@ -615,6 +588,8 @@ So, check the reviews AND the version number when that review was written.
 =item Search CPAN
 
 http://search.cpan.org/dist/Common-CodingTools/
+
+=back
 
 =head1 COPYRIGHT
 

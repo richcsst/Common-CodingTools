@@ -17,5 +17,6 @@ pm_to_blib
 Common-CodingTools-*
 Common-CodingTools-*.tar.gz
 test
-build
-build.sh
+build*
+t/*pl
+.git/

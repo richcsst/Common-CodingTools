@@ -1,21 +1,33 @@
 #!perl -T
 use 5.008;
 use strict;
+no strict 'subs';
 use warnings FATAL => 'all';
 use Test::More;
 
-plan tests => 10;
+plan tests => 11;
 
 BEGIN {
     use_ok('Common::CodingTools', qw(:functions)) || print "Bail out! Can't load Common::CodingTools qw(:functions)!\n";
 }
 
-ok(slurp_file('README') ne '', 'slurp_file');
-ok(ltrim('  test') eq 'test', 'ltrim');
-ok(rtrim('test  ') eq 'test', 'rtrim');
-ok(trim('  test  ') eq 'test', 'trim');
-ok(tfirst('my super duper title and it is cool') eq 'My Super Duper Title and It Is Cool', 'tfirst');
-ok(uc_lc('howdy there',1) eq 'HoWdY tHeRe', 'uc_lc (upper first)');
-ok(uc_lc('howdy there',0) eq 'hOwDy ThErE', 'uc_lc (lower first)');
-ok(text_center('centered') eq '      centered      ', 'text_center');
-ok(join(' ',schwartzian_sort('dog','apple', 'zoo', 'mountain')) eq 'apple dog mountain zoo', 'schwartzian sort');
+my $test = '   test   ';
+ok(slurp_file('README.md') ne '', 'slurp_file');
+ok(ltrim($test) eq 'test   ', 'ltrim > "' . $test . '" to "' . ltrim($test) . '"');
+ok(rtrim($test) eq '   test', 'rtrim > "' . $test . '" to "' . rtrim($test) . '"');
+ok(trim($test) eq 'test', 'trim > "' . $test . '" to "' . trim($test) . '"');
+
+my $tf = 'my super duper title and it is cool';
+ok(tfirst($tf) eq 'My Super Duper Title and It Is Cool', 'tfirst > "' . $tf . '" to "' . tfirst($tf) . '"');
+
+ok(uc_lc('howdy there', 1) eq 'HoWdY tHeRe', 'uc_lc (upper first) > ' . uc_lc('howdy there',1));
+ok(uc_lc('howdy there', 0) eq 'hOwDy ThErE', 'uc_lc (lower first) > ' . uc_lc('howdy there',0));
+
+ok(center('centered',20) eq '      centered      ', 'center > "centered" to "' . center('centered',20) . '"');
+
+my @array = (qw(dog apple zoo mountain));
+my @schwartz = schwartzian_sort(@array);
+ok(join(' ',@schwartz) eq 'apple dog mountain zoo', 'schwartzian sort (array) > (' . join(', ',@array) . ') to (' . join(', ',@schwartz) . ')');
+
+my $sb = schwartzian_sort(\@array);
+ok(join(' ',@{$sb}) eq 'apple dog mountain zoo', 'schwartzian sort (reference) > [' . join(', ', @array) . '] to [' . join(', ',@{$sb}) . ']');
