@@ -15,18 +15,6 @@ Common::CodingTools - Common constants and functions for programmers
 
 Something to use for just about any Perl project, as typical as "use strict".  It pre-defines some constants for easy boolean checks and has available functions Perl should have included by default.
 
-=head2 DEFAULT IMPORTED CONSTANTS
-
-These constants can make code easier to read.
-
-=over 4
-
-=item TRUE  (1)
-
-=item FALSE (0)
-
-=back
-
 =head2 IMPORT CONSTANTS
 
 In addition to the defaults, you can use constants that better reflect the purpose of the code
@@ -34,6 +22,8 @@ In addition to the defaults, you can use constants that better reflect the purpo
 Positive names (equals 1)
 
 =over 4
+
+=item TRUE
 
 =item SUCCESS
 
@@ -62,6 +52,8 @@ Positive names (equals 1)
 Negative names (equals 0)
 
 =over 4
+
+=item FALSE
 
 =item FAILURE
 
@@ -131,6 +123,10 @@ Imports all functions
 
 Imports all contants
 
+=item :boolean
+
+Inports the constants TRUE and FALSE
+
 =item :toggle
 
 Imports the constants ON and OFF
@@ -153,7 +149,7 @@ Imports the constants CLEAN and DIRTY
 
 =item :emotion
 
-Imports the constants HAPPY, SAD and ANGRY
+Imports the constants HAPPY, UNHAPPY, SAD and ANGRY
 
 =item :success
 
@@ -258,6 +254,7 @@ our @EXPORT_OK = qw(
   schwartzian_sort
 );
 our %EXPORT_TAGS = (
+	'boolean'     => [qw(TRUE FALSE)],
     'toggle'      => [qw(ON OFF)],
     'want'        => [qw(WANTED UNWANTED)],
     'activity'    => [qw(ACTIVE INACTIVE)],
@@ -315,6 +312,14 @@ our %EXPORT_TAGS = (
 );
 
 =head1 FUNCTIONS
+
+X<slurp_file>
+X<ltrim>
+X<rtrim>
+X<trim>
+X<center>
+X<uc_lc>
+X<schwartzian_sort>
 
 =head2 slurp_file
 
@@ -437,17 +442,13 @@ sub uc_lc {
 
 =head2 schwartzian_sort
 
-Sorts a rather large list with the very fast Swartzian sort.  It takes two parameters.  It returns either an array or a reference to an array, depending how it was called.
+Sorts a rather large list with the very fast Swartzian sort.  It returns either an array or a reference to an array, depending how it was called.
 
-=over 4
+ my @sorted = schwartzian_sort(@unsorted); # Can be slower with large arrays due to stack overhead.
 
-=item 1 for true or 0 for false
+or
 
-You MUST have this parameter first.  1 for string sort and 0 for numeric sort.
-
-=item array either as an array or reference to the array.
-
-=back
+ my $sorted = schwartzian_sort(\@unsorted); # Pass a reference and returns a reference (faster for large arrays)
 
 =cut
 
@@ -612,16 +613,6 @@ This program is free software; you can redistribute it and/or modify it under th
 
 L<http://www.perlfoundation.org/artistic_license_2_0>
 
-Any use, modification, and distribution of the Standard or Modified Versions is governed by this Artistic License. By using, modifying or distributing the Package, you accept this license. Do not use, modify, or distribute the Package, if you do not accept this license.
-
-If your Modified Version has been derived from a Modified Version made by someone other than you, you are nevertheless required to ensure that your Modified Version complies with the requirements of this license.
-
-This license does not grant you the right to use any trademark, service mark, tradename, or logo of the Copyright Holder.
-
-This license includes the non-exclusive, worldwide, free-of-charge patent license to make, have made, use, offer to sell, sell, import and otherwise transfer the Package with respect to any patent claims licensable by the Copyright Holder that are necessarily infringed by the Package. If you institute patent litigation (including a cross-claim or counterclaim) against any party alleging that the Package constitutes direct or contributory patent infringement, then this Artistic License to you shall terminate on the date that such litigation is filed.
-
-Disclaimer of Warranty: THE PACKAGE IS PROVIDED BY THE COPYRIGHT HOLDER AND CONTRIBUTORS "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES. THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT ARE DISCLAIMED TO THE EXTENT PERMITTED BY YOUR LOCAL LAW. UNLESS REQUIRED BY LAW, NO COPYRIGHT HOLDER OR CONTRIBUTOR WILL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THE PACKAGE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 =back
 
 =over 4
@@ -634,7 +625,7 @@ Disclaimer of Warranty: THE PACKAGE IS PROVIDED BY THE COPYRIGHT HOLDER AND CONT
 
 The B<tfirst> routine only, is under the MIT license as "TitleCase".
 
-http://www.opensource.org/licenses/mit-license.php
+L<http://www.opensource.org/licenses/mit-license.php>
 
 =back
 
