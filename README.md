@@ -28,6 +28,13 @@ Common programming tools with friendly constants and functions that should have 
 
  use Common::CodingTools qw(:all);
 ```
+## AUTHOR
+
+Richard Kelsch <rich@kr-internet.com>
+
+## VERSION
+
+Version 2.02 (November 06, 2025)
 
 ## INSTALLATION
 
@@ -170,6 +177,10 @@ To install this module, run the following commands:
   # $title is now 'This Is a String I Want To Turn Into a Title-ready String'
   ```
 
+## BUGS
+
+Please report any bugs or feature requests to bug-commoncodingtools at rt.cpan.org, or through the web interface at http://rt.cpan.org/NoAuth/ReportBug.html?Queue=CommonCodingTools. I will be notified, and then you'll automatically be notified of progress on your bug as I make changes.
+
 ## SUPPORT AND DOCUMENTATION
 
 After installing, you can find documentation for this module with the
@@ -189,13 +200,24 @@ You can also look for information at:
 
 * GitHub:  https://github.com/richcsst
 
-## LICENSE AND COPYRIGHT
+## COPYRIGHT
 
 Copyright (C) 2016-2025 Richard Kelsch,
+
 All Rights Reserved
+
+## LICENSES
+
+### Perl Artistic License 2.0
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
 copy of the full license at:
 
 http://www.perlfoundation.org/artistic_license_2_0
+
+### MIT License
+
+The **tfirst** routine only, is under the MIT license as "TitleCase".
+
+http://www.opensource.org/licenses/mit-license.php
