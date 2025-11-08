@@ -3,11 +3,33 @@ package Common::CodingTools;
 use strict;
 no strict 'subs';
 
+=encoding utf8
+
 =head1 NAME
 
 Common::CodingTools - Common constants and functions for programmers
 
 =head1 SYNOPSIS
+
+ ## Constants Tags
+ # :contants
+ # :boolean
+ # :toggle
+ # :activity
+ # :health
+ # :expiration
+ # :cleanliness
+ # :emotion
+ # :success
+ # :want
+ # :pi
+
+ ## Functions Tags
+ # :file
+ # :trim
+ # :schwartz
+ # :weird
+ # :string
 
  use Common::CodingTools qw(:all);
 
@@ -40,8 +62,6 @@ Positive names (equals 1)
 =item HEALTHY
 
 =item ON
-
-=item OFF
 
 =item ACTIVE
 
@@ -223,7 +243,7 @@ use constant {
 };
 
 BEGIN {
-    our $VERSION = 2.01;
+    our $VERSION = 2.02;
 }
 
 require Exporter;
@@ -552,7 +572,7 @@ This program is free software; you can redistribute it and/or modify it under th
 
 =head1 VERSION
 
-Version 2.01 (September 22, 2025)
+Version 2.02 (November 06, 2025)
 
 =head1 BUGS
 
@@ -590,6 +610,10 @@ So, check the reviews AND the version number when that review was written.
 
 http://search.cpan.org/dist/Common-CodingTools/
 
+=item GitHub
+
+https://github.com/richcsst/Common-CodingTools
+
 =back
 
 =head1 COPYRIGHT
@@ -611,7 +635,7 @@ The B<tfirst> subroutine is Copyright (C) 2008 John Gruber as "TitleCase"
 
 This program is free software; you can redistribute it and/or modify it under the terms of the the Artistic License (2.0). You may obtain a copy of the full license at:
 
-L<http://www.perlfoundation.org/artistic_license_2_0>
+L<https://perlfoundation.org/artistic-license-20.html>
 
 =back
 
