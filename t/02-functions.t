@@ -3,7 +3,7 @@ use 5.008;
 use strict;
 no strict 'subs';
 use warnings FATAL => 'all';
-use Test::More tests => 11;
+use Test::More tests => 12;
 
 BEGIN {
     use_ok('Common::CodingTools', qw(:functions)) || print "Bail out! Can't load Common::CodingTools qw(:functions)!\n";
@@ -11,6 +11,7 @@ BEGIN {
 
 my $test = '   test   ';
 ok(slurp_file('README.md') ne '', 'slurp_file');
+ok(not(defined slurp_file('missing.md')), 'slurp_file on missing file');
 ok(ltrim($test) eq 'test   ', 'ltrim > "' . $test . '" to "' . ltrim($test) . '"');
 ok(rtrim($test) eq '   test', 'rtrim > "' . $test . '" to "' . rtrim($test) . '"');
 ok(trim($test) eq 'test', 'trim > "' . $test . '" to "' . trim($test) . '"');
