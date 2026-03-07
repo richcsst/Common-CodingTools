@@ -274,7 +274,7 @@ our @EXPORT_OK = qw(
   schwartzian_sort
 );
 our %EXPORT_TAGS = (
-	'boolean'     => [qw(TRUE FALSE)],
+    'boolean'     => [qw(TRUE FALSE)],
     'toggle'      => [qw(ON OFF)],
     'want'        => [qw(WANTED UNWANTED)],
     'activity'    => [qw(ACTIVE INACTIVE)],
@@ -299,7 +299,7 @@ our %EXPORT_TAGS = (
           HAPPY UNHAPPY SAD ANGRY
           WANTED UNWANTED
           PI
-		  TRUE FALSE
+          TRUE FALSE
         )
     ],
     'functions' => [
@@ -321,7 +321,7 @@ our %EXPORT_TAGS = (
           HAPPY UNHAPPY SAD ANGRY
           WANTED UNWANTED
           PI
-		  TRUE FALSE
+          TRUE FALSE
           slurp_file
           ltrim rtrim trim uc_lc
           schwartzian_sort
