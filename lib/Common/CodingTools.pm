@@ -11,6 +11,9 @@ Common::CodingTools - Common constants and functions for programmers
 
 =head1 SYNOPSIS
 
+ ## Global Tag
+ # :all
+
  ## Constants Tags
  # :contants
  # :boolean
@@ -25,6 +28,7 @@ Common::CodingTools - Common constants and functions for programmers
  # :pi
 
  ## Functions Tags
+ # :functions
  # :file
  # :trim
  # :schwartz
@@ -473,14 +477,14 @@ or
 =cut
 
 sub schwartzian_sort {
-	my $wa = wantarray;
-	if (scalar(@_) == 1) {
-		@_ = @{$_[0]};
-	}
-	my @sorted = map { $_->[1] }
+    my $wa = wantarray;
+    if (scalar(@_) == 1) {
+        @_ = @{$_[0]};
+    }
+    my @sorted = map { $_->[1] }
         sort { $a->[0] cmp $b->[0] }
-		    map { [lc($_), $_] } @_;
-	return(($wa) ? @sorted : \@sorted);
+            map { [lc($_), $_] } @_;
+    return(($wa) ? @sorted : \@sorted);
 }
 
 =head2 tfirst
