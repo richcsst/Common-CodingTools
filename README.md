@@ -44,10 +44,15 @@ Version 2.02 (November 06, 2025)
 
 To install this module, run the following commands:
 
+```bash
     perl Makefile.PL
     make
     make test
     make install
+```
+# BRIEF DOCUMENTATION
+
+The following is only a subest of the actual documentation.  Use ```perldoc Common::CodingTools``` or ```man Common::CodingTools``` for the full documentation. 
 
 ## IMPORT CONSTANTS
 
