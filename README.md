@@ -30,7 +30,7 @@ Common programming tools with friendly constants and functions that should have 
 ```
 ## AUTHOR
 
-Richard Kelsch <rich@kr-internet.com>
+Richard Kelsch <rich@rk-internet.com>
 
 ## VERSION
 
