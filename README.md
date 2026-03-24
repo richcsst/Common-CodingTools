@@ -24,6 +24,7 @@ Common programming tools with friendly constants and functions that should have 
  # :pi
 
  ## Functions Tags
+ # :functions
  # :file
  # :trim
  # :schwartz
