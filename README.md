@@ -7,6 +7,9 @@ Common programming tools with friendly constants and functions that should have 
 ## SYNOPSIS
 
 ```
+ ## Global Tag
+ # :all
+
  ## Constants Tags
  # :contants
  # :boolean
