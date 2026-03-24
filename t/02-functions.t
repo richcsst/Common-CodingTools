@@ -3,7 +3,7 @@ use 5.008;
 use strict;
 no strict 'subs';
 use warnings FATAL => 'all';
-use Test::More tests => 11;
+use Test::More tests => 13;
 
 BEGIN {
     use_ok('Common::CodingTools', qw(:functions)) || print "Bail out! Can't load Common::CodingTools qw(:functions)!\n";
@@ -20,6 +20,9 @@ ok(tfirst($tf) eq 'My Super Duper Title and It Is Cool', 'tfirst > "' . $tf . '"
 
 ok(uc_lc('howdy there', 1) eq 'HoWdY tHeRe', 'uc_lc (upper first) > ' . uc_lc('howdy there',1));
 ok(uc_lc('howdy there', 0) eq 'hOwDy ThErE', 'uc_lc (lower first) > ' . uc_lc('howdy there',0));
+
+ok(leet_speak('howdy there', 1) eq 'HoWdY tHeRe', 'leet_speak (upper first) > ' . leet_speak('howdy there',1));
+ok(leet_speak('howdy there', 0) eq 'hOwDy ThErE', 'leet_speak (lower first) > ' . leet_speak('howdy there',0));
 
 ok(center('centered',20) eq '      centered      ', 'center > "centered" to "' . center('centered',20) . '"');
 
