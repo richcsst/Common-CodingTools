@@ -1,7 +1,7 @@
 package Common::CodingTools;
 
 use strict;
-no strict 'subs';
+no strict 'subs'; # Needed for constants
 
 =encoding utf8
 
@@ -247,7 +247,7 @@ use constant {
 };
 
 BEGIN {
-    our $VERSION = 2.04;
+    our $VERSION = 2.05;
 }
 
 require Exporter;
