@@ -45,10 +45,10 @@ Version 2.03 (March 23, 2026)
 To install this module, run the following commands:
 
 ```bash
-    perl Makefile.PL
-    make
-    make test
-    make install
+           perl Makefile.PL
+           make
+           make test
+    [sudo] make install
 ```
 # BRIEF DOCUMENTATION
 
