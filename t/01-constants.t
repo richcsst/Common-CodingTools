@@ -7,8 +7,15 @@ use warnings FATAL => 'all';
 
 use Test::More tests => 24;
 
+#   ___                          _ _ ___         _ _          _____         _     
+#  / __|___ _ __  _ __  ___ _ _ (_|_) __|___  __| (_)_ _  __ |_   _|__  ___| |___ 
+# | (__/ _ \ '  \| '  \/ _ \ ' \ _ | (__/ _ \/ _` | | ' \/ _` || |/ _ \/ _ \ (_-< 
+#  \___\___/_|_|_|_|_|_\___/_||_(_|_)___\___/\__,_|_|_||_\__, ||_|\___/\___/_/__/ 
+#                                                        |___/
+# Constants Tests
+
 BEGIN {
-	use_ok('Common::CodingTools', qw( :constants )) || diag("Bail out! Can't load Common::CodingTools qw(:constants)");
+    use_ok('Common::CodingTools', qw( :constants )) || diag("Bail out! Can't load Common::CodingTools qw(:constants)");
 }
 
 ok(TRUE       == 1, 'TRUE');
