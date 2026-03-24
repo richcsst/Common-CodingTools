@@ -243,7 +243,7 @@ use constant {
 };
 
 BEGIN {
-    our $VERSION = 2.02;
+    our $VERSION = 2.03;
 }
 
 require Exporter;
@@ -473,20 +473,15 @@ or
 =cut
 
 sub schwartzian_sort {
-    my $wa = wantarray;
-
-    my @array = ();
-
-    if ($wa) {
-        @array = @_;
-    } else {
-        my $arr = shift;
-        @array = @{$arr};
-    }
-    my @sorted = map { $_->[0] } sort { $a->[1] <=> $b->[1] or $a->[0] cmp $b->[0] } map { [$_, -M $_] } @array;
-
-    return (($wa) ? @sorted : \@sorted);
-} ## end sub schwartzian_sort
+	my $wa = wantarray;
+	if (scalar(@_) == 1) {
+		@_ = @{$_[0]};
+	}
+	my @sorted = map { $_->[1] }
+        sort { $a->[0] cmp $b->[0] }
+		    map { [lc($_), $_] } @_;
+	return(($wa) ? @sorted : \@sorted);
+}
 
 =head2 tfirst
 
