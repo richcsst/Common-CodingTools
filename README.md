@@ -38,7 +38,7 @@ Richard Kelsch <rich@rk-internet.com>
 
 ## VERSION
 
-Version 2.02 (November 06, 2025)
+Version 2.03 (March 23, 2026)
 
 ## INSTALLATION
 
