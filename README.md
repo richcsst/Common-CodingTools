@@ -186,11 +186,11 @@ perldoc command.
 
 You can also look for information at:
 
-* CPAN Ratings:  http://cpanratings.perl.org/d/Common-CodingTools
+* CPAN Ratings:  [http://cpanratings.perl.org/d/Common-CodingTools](http://cpanratings.perl.org/d/Common-CodingTools)
 
-* Search CPAN:  http://search.cpan.org/dist/Common-CodingTools/
+* Search CPAN:  [http://search.cpan.org/dist/Common-CodingTools/](https://metacpan.org/dist/Common-CodingTools)
 
-* GitHub:  https://github.com/richcsst
+* GitHub:  [https://github.com/richcsst](https://github.com/richcsst)
 
 ## COPYRIGHT
 
