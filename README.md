@@ -52,7 +52,7 @@ To install this module, run the following commands:
 ```
 # BRIEF DOCUMENTATION
 
-The following is only a subest of the actual documentation.  Use ```perldoc Common::CodingTools``` or ```man Common::CodingTools``` for the full documentation. 
+The following is only a subset of the actual documentation.  Use ```perldoc Common::CodingTools``` or ```man Common::CodingTools``` for the full documentation. 
 
 ## IMPORT CONSTANTS
 
