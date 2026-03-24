@@ -247,7 +247,7 @@ use constant {
 };
 
 BEGIN {
-    our $VERSION = 2.03;
+    our $VERSION = 2.04;
 }
 
 require Exporter;
@@ -274,6 +274,7 @@ our @EXPORT_OK = qw(
   trim
   tfirst
   uc_lc
+  leet_speak
   center
   schwartzian_sort
 );
@@ -291,8 +292,9 @@ our %EXPORT_TAGS = (
     'file'        => [qw(slurp_file)],
     'trim'        => [qw(ltrim rtrim trim)],
     'schwartz'    => [qw(schwartzian_sort)],
-    'weird'       => [qw(uc_lc)],
-    'string'      => [qw(ltrim rtrim trim uc_lc center tfirst)],
+    'weird'       => [qw(uc_lc leet_speak)],
+    'weird-case'  => [qw(uc_lc leet_speak)],
+    'string'      => [qw(ltrim rtrim trim uc_lc leet_speak center tfirst)],
     'constants'   => [
         qw(
           ON OFF
@@ -309,7 +311,7 @@ our %EXPORT_TAGS = (
     'functions' => [
         qw(
           slurp_file
-          ltrim rtrim trim uc_lc
+          ltrim rtrim trim uc_lc leet_speak
           schwartzian_sort
           center
           tfirst
@@ -327,7 +329,7 @@ our %EXPORT_TAGS = (
           PI
           TRUE FALSE
           slurp_file
-          ltrim rtrim trim uc_lc
+          ltrim rtrim trim uc_lc leet_speak
           schwartzian_sort
           center
           tfirst
@@ -343,6 +345,7 @@ X<rtrim>
 X<trim>
 X<center>
 X<uc_lc>
+X<leet_speak>
 X<schwartzian_sort>
 
 =head2 slurp_file
@@ -463,6 +466,18 @@ sub uc_lc {
     } ## end if (defined($string) &&...)
     return ($string);
 } ## end sub uc_lc
+
+=head2 leet_speak (same as uc_lc)
+
+This changes text to annoying "leet-speak".
+
+ my $result = leet_speak($string, 1);  # Second parameter determs whether to start with upper or lower-case.  You can leave out that parameter for random pick.
+
+=cut
+
+sub leet_speak {
+    return(uc_lc(@_));
+}
 
 =head2 schwartzian_sort
 
