@@ -203,7 +203,7 @@ You can also look for information at:
 
 ## COPYRIGHT
 
-Copyright (C) 2016-2026 Richard Kelsch,
+Copyright © 2016-2026 Richard Kelsch,
 
 All Rights Reserved
 
