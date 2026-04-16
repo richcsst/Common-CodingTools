@@ -169,7 +169,9 @@ The following is only a subset of the actual documentation.  Use ```perldoc Comm
   Changes text to annoying "leet-speak".
 
   ```perl
-  my $result = uc_lc($string, 1); # Second parameter determines whether to start with upper or lower-case.  You can leave out that parameter for a random pick.
+  my $result = uc_lc($string, 1); # Second parameter determines whether to start
+                                  # with upper or lower-case.  You can leave out
+                                  # that parameter for a random pick.
   ```
 
 * **schwartzian_sort**
