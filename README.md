@@ -6,7 +6,7 @@ Common programming tools with friendly constants and functions that should have 
 
 ## SYNOPSIS
 
-```
+```perl
  ## Global Tag
  # :all
 
@@ -127,58 +127,76 @@ The following is only a subset of the actual documentation.  Use ```perldoc Comm
 * **slurp_file**
 
   Reads in a text file and returns the contents of that file as a single string.  It returns undef if the file is not found.
-  ```
+
+  ```perl
   my $string = slurp_file('/file/name');
   ```
+
 * **ltrim**
 
   Removes any spaces at the beginning of a string (the left side).
-  ```
+
+  ```perl
   my $result = ltrim($string);
   ```
+
 * **rtrim**
 
   Removes any spaces at the end of a string (the right side).
-  ```
+
+  ```perl
   my $result = rtrim($string);
   ```
+
 * **trim**
 
   Removes any spaces at the beginning and ending of a string.
-  ```
+
+  ```perl
   my $result = trim($string);
   ```
+
 * **center**
 
   Centers a string, padding with leading spaces, in the middle of the given width.
-  ```
+
+  ```perl
   my $result = center($string,80); # Centers text for an 80 column display
   ```
+
 * **uc_lc**
 
   Changes text to annoying "leet-speak".
-  ```
+
+  ```perl
   my $result = uc_lc($string, 1); # Second parameter determines whether to start with upper or lower-case.  You can leave out that parameter for a random pick.
   ```
+
 * **schwartzian_sort**
 
   Sorts a rather large list with the very fast Swartzian sort.  It sorts a reference to an array or a full array.  It returns either an array or a reference to an array, depending on how it was called.
-  ```
+
+  ```perl
   my @sorted = schwartzian_sort(@unsorted); # Schwaertian sort is heavily stack intensive, but it's fast.
   ```
+
   or
-  ```
+
+  ```perl
   my $sorted = schwartzian_sort(\@unsorted);
   ```
+
 * **tfirst**
 
   Change text into "title ready" text with each word capitalized.
-  ```
+
+  ```perl
   my $title = tfirst($string);
   ```
+
   For example:
 
-  ```
+  ```perl
   my $before = 'this is a string I want to turn into a title-ready string';
 
   my $title = tfirst($before);
@@ -215,10 +233,10 @@ This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
 copy of the full license at:
 
-http://www.perlfoundation.org/artistic_license_2_0
+[http://www.perlfoundation.org/artistic_license_2_0](http://www.perlfoundation.org/artistic_license_2_0)
 
 ### MIT License
 
 The **tfirst** routine only, is under the MIT license as "TitleCase".
 
-http://www.opensource.org/licenses/mit-license.php
+[http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php)
