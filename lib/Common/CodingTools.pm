@@ -614,7 +614,7 @@ L<http://annocpan.org/dist/Common-CodingTools>
 
 L<http://cpanratings.perl.org/d/Common-CodingTools>
 
-Not exactly a reliable and fair means of rating modules. Modules are updated and improved over time, and what may have been a poor or mediocre review at version 0,04, may not remotely apply to current or later versions. It applies ratings in an arbitrary manner with no ability for the author to add their own rebuttals or comments to the review, especially should the review be malicious or inapplicable.
+Not exactly a reliable and fair means of rating modules. Modules are updated and improved over time, and what may have been a poor or mediocre review at version 0.04, may not remotely apply to current or later versions. It applies ratings in an arbitrary manner with no ability for the author to add their own rebuttals or comments to the review, especially should the review be malicious or inapplicable.
 
 More importantly, issues brought up in a mediocre review may have been addressed and improved in later versions, or completely changed to allieviate that issue.
 
