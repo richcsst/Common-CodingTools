@@ -604,15 +604,15 @@ You can also look for information at:
 
 =item RT: CPAN's request tracker (report bugs here)
 
-http://rt.cpan.org/NoAuth/Bugs.html?Dist=Common-CodingTools
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Common-CodingTools>
 
 =item AnnoCPAN: Annotated CPAN documentation
 
-http://annocpan.org/dist/Common-CodingTools
+L<http://annocpan.org/dist/Common-CodingTools>
 
 =item CPAN Ratings
 
-http://cpanratings.perl.org/d/Common-CodingTools
+L<http://cpanratings.perl.org/d/Common-CodingTools>
 
 Not exactly a reliable and fair means of rating modules. Modules are updated and improved over time, and what may have been a poor or mediocre review at version 0,04, may not remotely apply to current or later versions. It applies ratings in an arbitrary manner with no ability for the author to add their own rebuttals or comments to the review, especially should the review be malicious or inapplicable.
 
@@ -622,11 +622,11 @@ So, check the reviews AND the version number when that review was written.
 
 =item Search CPAN
 
-http://search.cpan.org/dist/Common-CodingTools/
+L<http://search.cpan.org/dist/Common-CodingTools/>
 
 =item GitHub
 
-https://github.com/richcsst/Common-CodingTools
+L<https://github.com/richcsst/Common-CodingTools>
 
 =back
 
