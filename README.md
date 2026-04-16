@@ -174,35 +174,35 @@ The following is only a subset of the actual documentation.  Use ```perldoc Comm
 
 * **schwartzian_sort**
 
-  Sorts a rather large list with the very fast Swartzian sort.  It sorts a reference to an array or a full array.  It returns either an array or a reference to an array, depending on how it was called.
+  Sorts a rather large list with the very fast Swartzian sort.  It sorts a reference to an array or a full array.  It returns either an array or a reference to an array, depending on how it was called.  It is suggested that you use references for full speed.
 
-\* *Schwaertian sort is heavily stack intensive, but it's fast.*
+   \* *Schwaertian sort is heavily stack intensive, but it's fast.*
 
-  ```perl
-  # Array in and array out.
-  my @sorted = schwartzian_sort(@unsorted);
-  ```
+     ```perl
+     # Array in and array out.
+     my @sorted = schwartzian_sort(@unsorted);
+     ```
 
-  or
+     or
 
-  ```perl
-  # Array reference in and array out.
-  my @sorted = schwartzian_sort(\@unsorted);
-  ```
+     ```perl
+     # Array reference in and array out.
+     my @sorted = schwartzian_sort(\@unsorted);
+     ```
 
-  or
+     or
 
-  ```perl
-  # Array in and array reference out.
-  my $sorted = schwartzian_sort(@unsorted);
-  ```
+     ```perl
+     # Array in and array reference out.
+     my $sorted = schwartzian_sort(@unsorted);
+     ```
 
-  or
+     or
 
-  ```perl
-  # Array reference in and array reference out.
-  my $sorted = schwartzian_sort(\@unsorted);
-  ```
+     ```perl
+     # Array reference in and array reference out.
+     my $sorted = schwartzian_sort(\@unsorted);
+     ```
 
 * **tfirst**
 
