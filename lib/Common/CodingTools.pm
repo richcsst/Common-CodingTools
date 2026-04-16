@@ -247,7 +247,7 @@ use constant {
 };
 
 BEGIN {
-    our $VERSION = 2.05;
+    our $VERSION = 2.06;
 }
 
 require Exporter;
@@ -586,7 +586,7 @@ This program is free software; you can redistribute it and/or modify it under th
 
 =head1 VERSION
 
-Version 2.02 (November 06, 2025)
+Version 2.06 (April 15, 2026)
 
 =head1 BUGS
 
