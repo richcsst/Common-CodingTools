@@ -1,0 +1,38 @@
+name: CI Makefile
+
+on:
+    push:
+    pull_request:
+    #schedule:
+    #    - cron: '42 5 * * 0'
+
+jobs:
+  perl-job:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        perl-version:
+          #- '5.8'
+          #- '5.10'
+          - '5.12'
+          - '5.20'
+          - '5.30'
+          - '5.36'
+          - '5.42'
+#          - 'latest'
+    container:
+      image: perldocker/perl-tester:${{ matrix.perl-version }}     # https://hub.docker.com/r/perldocker/perl-tester
+    name: Perl ${{ matrix.perl-version }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Show perl version
+        run: perl -v
+
+      - name: Regular tests
+        run: |
+            cpanm --installdeps --notest .
+            perl Makefile.PL
+            make
+            make test
+
